@@ -1,0 +1,425 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Menu</title>
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+<style type="text/css">
+*{
+	box-sizing:border-box;
+}
+body,html{
+	width:100%;
+	height:100%;
+	margin:0;
+}
+.tablink{
+	background-color: #555;
+	color:white;
+	border:none;
+	outline:none;
+	float:left;
+	padding:14px 16px;
+	font-size:2vw;
+	width:25%;
+	cursor:pointer;
+}
+.tablink:hover{
+	background-color: #777;
+}
+.tabcontent{
+	padding-left:25px;
+	padding-right:10px;
+}
+.menucontent{
+	width:32%;
+	height:43%;
+	float:left;
+	font-size:2vw;
+	background-color:#fff9bf;
+	padding:5px;
+	margin:4px;
+}
+sub{
+	font-size:1vw;
+}
+div img.menu-pic{
+	width:50%;
+	height:70%;
+	float:left;
+	margin:30px 15px;
+}
+.menuicon{
+	width:5%;
+}
+.tabcontent{
+	height:100%;
+}
+article{
+	min-width:800px;
+}
+
+</style>
+</head>
+
+<body>
+	<!--Logo-->
+	<a href="Homepage_Login.html">
+		<div class="logo">
+			<img src="general/logo.png"/>
+		</div>
+	</a>
+	
+	<!--Top part-->
+	<div class="top">
+	<!--Header-->
+	<header>
+		<marquee>24 Hours Delivery 1800-888-999</marquee>
+		<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+	</header>
+	
+	<!-- Login form -->
+		<div class="form-popup" id="myForm">
+		  <form class="form-container">
+		    <center><h1>Login</h1></center>
+		
+		    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+		    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+		
+		    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+		    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+			<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+		  </form>
+		  <div class="form-container">
+		  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+		    <br/>
+		    <center><h3>Not a Pizza Hi's User?</h3></center>
+		    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+		    </div>
+		</div>
+	
+	
+	
+	<!--Navigation Bar-->
+	<nav>
+		<ul>
+			<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+			<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+			<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+			<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+			<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+			<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+		</ul>
+	</nav>
+	</div>
+	
+	<!--Menu-->
+	<article>
+		<map id="ImgMap0" name="ImgMap0">
+			<area alt="" coords="209, 145, 169, 191, 174, 200, 363, 256, 389, 249, 422, 202, 414, 188, 228, 138" href="chicken_bolognaise.html" shape="poly" />
+			<area alt="" coords="154, 201, 9, 159, 14, 138, 19, 128, 24, 120, 41, 117, 52, 119, 177, 144, 190, 156, 162, 185, 167, 196, 162, 206, 157, 199" href="garlic_bread.html" shape="poly" />
+			<area alt="" coords="110, 80, 77, 113, 130, 131, 182, 143, 199, 148, 217, 137, 247, 108" href="cheesy_chicken_fingers.html" shape="poly" />
+			<area alt="" coords="273, 103, 286, 86, 325, 75, 360, 69, 396, 72, 424, 78, 449, 91, 469, 113, 474, 130, 465, 146, 449, 167, 423, 181, 409, 183, 268, 146, 266, 131, 271, 106" href="island_supreme.html" shape="poly" />
+			<area alt="" coords="141, 47, 171, 12, 183, 10, 200, 16, 229, 20, 235, 35, 259, 25, 277, 39, 279, 53, 280, 73, 266, 93, 243, 94, 214, 89, 175, 82, 145, 75" href="new_orleans_drumettes.html" shape="poly" />
+		</map>
+		<img src="TopBanner.jpg" width="800px" height="285px" usemap="#ImgMap0"/>
+		
+		<!--Tab Menu-->
+		<h1 style="font-size:3vw;">Menu</h1>
+		<button class="tablink" onclick="openPage('pizza',this,'red')" id="defaultOpen">Pizza</button>
+		<button class="tablink" onclick="openPage('pasta',this,'green')">Pasta</button>
+		<button class="tablink" onclick="openPage('beverage',this,'blue')">Beverage</button>
+		<button class="tablink" onclick="openPage('sides',this,'orange')">Sides</button>
+		
+		<!--Pizza Tab Menu-->
+		<div id="pizza" class="tabcontent">
+			<div class="menucontent">
+				<a href="blazing_seafood.html"><img src="pizza_img/BlazingSeafood.jpg" alt="Blazing Seafood" class="menu-pic"/></a>
+				Blazing Seafood
+				<br/>
+				<img src="pizza_icon/seafood.png" alt="Seafood" class="menuicon"/>
+				<br/><br/>
+				<sub>FROM   </sub>RM12.90
+			</div>
+			
+			<div class="menucontent">
+				<a href="chicken_supreme.html"><img src="pizza_img/ChickenSupreme.jpg" alt="Chicken Supreme" class="menu-pic"/></a>
+				Chicken Supreme
+				<br/>
+				<img src="pizza_icon/tomato.png" alt="Tomato" class="menuicon"/>
+				<img src="pizza_icon/chicken.png" alt="Seafood" class="menuicon"/>
+				<br/><br/>
+				<sub>FROM   </sub>RM14.30
+			</div>
+			
+			<div class="menucontent">
+				<a href="island_supreme.html"><img src="pizza_img/IslandSupreme.jpg" alt="Island Supreme" class="menu-pic"/></a>
+				Island Supreme
+				<br/>
+				<img src="pizza_icon/fish.png" alt="Fish" class="menuicon"/>
+				<br/><br/>
+				<sub>FROM   </sub>RM14.30
+			</div>
+			
+			<div class="menucontent">
+				<a href="triple_chicken.html"><img src="pizza_img/TripleChicken.jpg" alt="Triple Chicken" class="menu-pic"/></a>
+				Triple Chicken
+				<br/>
+				<img src="pizza_icon/chicken.png" alt="Seafood" class="menuicon"/>
+				<br/><br/>
+				<sub>FROM   </sub>RM14.30
+			</div>
+			
+			<div class="menucontent">
+				<a href="super_supreme.html"><img src="pizza_img/SuperSupreme.jpg" alt="Super Supreme" class="menu-pic"/></a>
+				Super Supreme
+				<br/>
+				<img src="pizza_icon/tomato.png" alt="Tomato" class="menuicon"/>
+				<img src="pizza_icon/chicken.png" alt="Seafood" class="menuicon"/>
+				<img src="pizza_icon/meat.png" alt="Beef" class="menuicon"/>
+				<br/><br/>
+				<sub>FROM   </sub>RM14.30
+			</div>
+			
+			<div class="menucontent">
+				<a href="Customize Pizza.html"><img src="pizza_img/Customize Pizza.png" alt="Customize Pizza" class="menu-pic"/></a>
+				Customize Pizza
+				<br/><br/><br/>
+				<sub>FROM   </sub>RMXX.XX
+			</div>
+
+		</div>
+		
+		<!--Pasta Tab Menu-->
+		<div id="pasta" class="tabcontent">
+			<div class="menucontent">
+				<a href="spicy_chicken_arrabiata.html"><img src="speg_img/ChickenArrabiata.jpg" alt="Spicy Chicken Arrabiata Spaghetti" class="menu-pic"/></a>
+				Spicy Chicken Arrabiata Spaghetti
+				<br/><br/>
+				<sub>FROM   </sub>RM14.90
+			</div>
+			
+			<div class="menucontent">
+				<a href="creamy_asian_chicken.html"><img src="speg_img/CreamyAsianChicken.jpg" alt="Creamy Asian Chicken Spaghetti" class="menu-pic"/></a>
+				Creamy Asian Chicken Spaghetti
+				<br/><br/>
+				<sub>FROM   </sub>RM14.90
+			</div>
+			
+			<div class="menucontent">
+				<a href="creamy_carbonara.html"><img src="speg_img/CreamyCarbonara.jpg" alt="Creamy Carbonara Spaghetti" class="menu-pic"/></a>
+				Creamy Carbonara Spaghetti
+				<br/><br/>
+				<sub>FROM   </sub>RM14.90
+			</div>
+			
+			<div class="menucontent">
+				<a href="chicken_bolognaise.html"><img src="speg_img/Bolognaise.jpg" alt="Chicken Bolognaise Spaghetti" class="menu-pic"/></a>
+				Chicken Bolognaise Spaghetti
+				<br/><br/>
+				<sub>FROM   </sub>RM14.90
+			</div>
+		</div>
+		
+		<!--Beverage Tab Menu-->
+		<div id="beverage" class="tabcontent">
+			<div class="menucontent">
+				<a href="pepsi.html"><img src="beverage_img/Pepsi.png" alt="Pepsi" class="menu-pic"/></a>
+				Pepsi
+				<br/><br/><br/><br/>
+				<sub>FROM   </sub>RM3.00
+			</div>
+			
+			<div class="menucontent">
+				<a href="pepsi_black.html"><img src="beverage_img/PepsiBlack.png" alt="Pepsi Black" class="menu-pic"/></a>
+				Pepsi Black
+				<br/><br/><br/><br/>
+				<sub>FROM   </sub>RM3.00
+			</div>
+			
+			<div class="menucontent">
+				<a href="lipton_ice_lemon_tea.html"><img src="beverage_img/LiptonIcedLemonTeaCan.png" alt="Liption Iced Lemon Tea" class="menu-pic"/></a>
+				Lipton Iced Lemon Tea
+				<br/><br/><br/>
+				<sub>FROM   </sub>RM3.00
+			</div>
+			
+			<div class="menucontent">
+				<a href="revive_isotonic.html"><img src="beverage_img/ReviveIsotonic.png" alt="Revive" class="menu-pic"/></a>
+				Revive
+				<br/><br/><br/><br/>
+				<sub>FROM   </sub>RM3.00
+			</div>
+			
+			<div class="menucontent">
+				<a href="tropicana_twist_orange.html"><img src="beverage_img/TropicanaTwisteOrange.png" alt="Tropicana Twister Orange" class="menu-pic"/></a>
+				Tropicana Twister (Orange)
+				<br/><br/>
+				<sub>FROM   </sub>RM3.00
+	
+			</div>
+			
+			<div class="menucontent">
+				<a href="mineral_water.html"><img src="beverage_img/MineralWater.png" alt="Mineral Water" class="menu-pic"/></a>
+				Mineral Water
+				<br/><br/><br/><br/>
+				<sub>FROM   </sub>RM2.00
+			</div>
+		</div>
+		
+		<!--Sides Tab Menu-->
+		<div id="sides" class="tabcontent">
+			<div class="menucontent">
+				<a href="cheesy_chicken_fingers.html"><img src="sides_img/CheesyChickenFingers.jpg" alt="Cheesy Chicken Finger" class="menu-pic"/></a>
+				Cheesy Chicken Finger
+				<br/><br/>
+				<sub>FROM   </sub>RM9.70
+			</div>
+			
+			<div class="menucontent">
+				<a href="garlic_bread.html"><img src="sides_img/GarlicBread.jpg" alt="Garlic Bread" class="menu-pic"/></a>
+				Garlic Bread
+				<br/><br/><br/><br/>
+				<sub>FROM   </sub>RM4.50
+			</div>
+			
+			<div class="menucontent">
+				<a href="mushroom_soup.html"><img src="sides_img/MushroomSoup.jpg" alt="Mushroom Soup" class="menu-pic"/></a>
+				Mushroom Soup
+				<br/><br/><br/>
+				<sub>FROM   </sub>RM4.50
+			</div>
+			
+			<div class="menucontent">
+				<a href="new_orleans_drumettes.html"><img src="sides_img/NewOrleansDrumettes.jpg" alt="New Orleans Drumettes" class="menu-pic"/></a>
+				New Orleans Drumettes
+				<br/><br/><br/>
+				<sub>FROM   </sub>RM14.10
+			</div>
+	
+			<div class="menucontent">
+				<a href="potato_wedges.html"><img src="sides_img/PotatoWedges.jpg" alt="Potato Wedges" class="menu-pic"/></a>
+				Potato Wedges
+				<br/><br/><br/>
+				<sub>FROM   </sub>RM6.25
+			</div>
+			
+			<div class="menucontent">
+				<a href="tasty_chicken_bites.html"><img src="sides_img/TastyChickenBites.jpg" alt="Tasty Chicken Bites" class="menu-pic"/></a>
+				Tasty Chicken Bites
+				<br/><br/><br/>
+				<sub>FROM   </sub>RM7.90
+			</div>
+		</div>
+	</article>
+	
+	<!--Footer-->
+	<footer> 
+		<div>
+			<img src="general/logo.png"/>
+			<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+		</div>
+		<div>
+			<p>
+			Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+			Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+			Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+			Any suggentions to us? <br/>
+			<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+			</p>
+		</div>
+	</footer>
+
+
+	<script type="text/javascript">
+	/* Hide all elements with class="tabcontent" by default */
+	 function openPage(pageName,elmnt,color){
+	 var i, tabcontent, tablink;
+	 tabcontent = document.getElementsByClassName("tabcontent");
+	 for (i = 0; i < tabcontent.length; i++){
+	 tabcontent[i].style.display = "none";
+	 }
+	 
+	 /* Remove the background color of all tablinks/buttons */
+	 tablink = document.getElementsByClassName("tablink");
+	 for (i = 0; i < tablink.length; i++){
+	 tablink[i].style.backgroundColor = "";
+	 }
+	 
+	 /* Show the specific tab content */
+	 document.getElementById(pageName).style.display = "block";
+	 
+	 /* Add the specific color to the button used to open the tab content */
+	 elmnt.style.backgroundColor = color;
+	}
+	
+	/* Get the element with id="defaultOpen" and click on it */
+	document.getElementById("defaultOpen").click();
+	
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	</script>
+</body>
+
+</html>

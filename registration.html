@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Registration Page</title>
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+<style type="text/css">
+*{
+	box-sizing: border-box;
+}
+.container{
+	width:75%;
+	margin:0px 12.5%;
+	padding: 15px 20px 15px 20px;
+	background-color:white;
+}
+h1{
+	font-size:3.5em;
+}
+hr{
+	border-style:solid;
+	border-color:#f1f1f1;
+	margin-bottom:25px;
+}
+input {
+	display:inline-block;
+	width:100%;
+	padding:15px;
+	margin:5px 0px 5px 0px;
+	border:none;
+	background:#f1f1f1;
+}
+input[type=checkbox]{
+	width:auto;
+}
+input:focus {
+ 	background-color: #ddd;
+	outline: none;
+}
+.registerbtn{
+	width:100%;
+	margin:20px 0px 10px 0px;
+	background-color: red; 
+	color: white; 
+	padding: 16px 20px;
+	opacity: 0.8;
+}
+.registerbtn:hover{
+	opacity: 1;
+}
+
+</style>
+</head>
+
+<body>
+	<!--Logo-->
+	<a href="Homepage_Login.html">
+		<div class="logo">
+			<img src="general/logo.png"/>
+		</div>
+	</a>
+	
+	<!--Top part-->
+	<div class="top">
+	<!--Header-->
+	<header>
+		<marquee>24 Hours Delivery 1800-888-999</marquee>
+		<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+	</header>
+	
+	<!-- Login form -->
+		<div class="form-popup" id="myForm" style="float:left;">
+		  <form class="form-container">
+		    <center><h1>Login</h1></center>
+		
+		    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+		    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+		
+		    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+		    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+			<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+		  </form>
+		  <div class="form-container">
+		  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+		    <br/>
+		    <center><h3>Not a Pizza Hi's User?</h3></center>
+		    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+		    </div>
+		</div>
+	
+	<!--Navigation Bar-->
+	<nav>
+		<ul>
+			<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+			<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+			<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+			<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+			<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+			<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+		</ul>
+	</nav>
+	</div>
+
+	<!--Registration Form-->
+	<article>
+		<div class="container">
+			<form class="register">
+				<h1>Account Registration</h1>
+				<hr/>
+				<label for="name"><b>Name</b></label>
+				<input name="name" type="text" placeholder="Enter Name" required/>
+		
+				<label for="email"><b>Email</b></label>
+				<input name="email" type="email" placeholder="Enter Email" required/>
+				
+				<label for="pwd"><b>Password</b></label>
+				<input name="pwd" id="pwd" type="password" placeholder="Enter Password" required/>
+				
+				<div>
+					<input type="checkbox" style="float:left" onclick="showPass()"/><font style="float:left">Show Password</font>
+				</div>
+				<br/>
+				
+				<label for="re-pwd"><b>Retype Password</b></label>
+				<input name="re-pwd" id="re-pwd" type="password" placeholder="Enter Password" required/>
+						
+				<label for="contact"><b>Contact Number</b></label>
+				<input name="contact" type="text" placeholder="Enter Contact Number" maxlength="11" required/>
+			
+				<label for="address"><b>Address</b></label>
+				<input name="address" type="text" placeholder="Enter Address" required/>
+				
+				<label><input type="checkbox" checked="checked" name="tnc" required/>Yes, I have read and agree to the <a href="#" style="text-decoration:none">Terms &amp; Conditions</a>, PRIVACY AND PERSONA DATA PROTECTION POLICY and Web Order Policy.</label>
+				<br/>
+				<label><input type="checkbox" checked="checked" name="promomail"/>Yes, I would like to receive latest promotions and offers from PizzaHi.</label>
+				
+				<button type="submit" class="registerbtn" onclick="passValid()">Register</button>
+			</form>
+		</div>	
+	</article>
+	
+	<!--Footer-->
+	<footer> 
+		<div>
+			<img src="general/logo.png"/>
+			<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+		</div>
+		<div>
+			<p>
+			Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+			Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+			Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+			Any suggentions to us? <br/>
+			<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+			</p>
+		</div>
+	</footer>
+
+	
+
+	
+	<script>
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}	
+	}	
+	
+	/* Password and retype password validation */
+	function passValid(){
+		var passwd = document.getElementById("pwd").value;
+		var repasswd = document.getElementById("re-pwd").value;
+		
+		if(passwd == repasswd){
+			alert('Register Successfully')
+		}
+		else{
+			alert('Re-type password not match with password !!!')
+		}
+	}
+	
+	/* Show registration password */
+	function showPass() {
+	  var x = document.getElementById("pwd");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+
+	</script>
+
+</div>
+</body>
+
+</html>

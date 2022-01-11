@@ -1,0 +1,239 @@
+﻿
+<html>
+<head>
+<title>Pizza Hi's Homepage</title>
+
+	<style>
+		/* Style for Image Slider */
+		body { background-color: #fff; color: #000; padding: 0; margin: 0; }
+		.container { width: 1024px; margin: auto; padding-top: 1em; }
+		.container .ism-slider { margin-left: auto; margin-right: auto; }
+		
+		/* Size for video in image slider */
+		video{
+			width:1050px;
+		}
+	</style>
+	
+	<!-- Pop up message about successful add to cart -->
+	<script>
+		function popUp() {
+	  		alert("Add Successful!");
+		}
+		
+		var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	</script>
+
+<!-- CSS and Javascript linking -->
+	<link rel="stylesheet" href="my-slider.css"/>
+	<script src="Slider.js"></script>
+	<link href="Homepage_Design.css" rel="stylesheet" type="text/css"/>
+	<link href="template.css" rel="stylesheet" type="text/css"/>
+	<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+
+
+</head>
+<body>
+
+	<!--Logo-->
+<a href="Homepage_MembershipProfile.html">
+	<div class="logo">
+		<img src="general/logo.png"/>
+	</div>
+</a>
+
+<!--Top part-->
+<div class="top">
+<!--Header-->
+<header>
+	<marquee>24 Hours Delivery 1800-888-999</marquee>
+	<a href="Membership Profile.html" style="text-decoration:none; color:white;"><img src="general/Membership Profile.png" class="icon"/> Kelvin </a>
+</header>
+
+<!-- Login form -->
+	<div class="form-popup" id="myForm">
+	  <form class="form-container">
+	    <center><h1>Login</h1></center>
+	
+	    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+	    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+	
+	    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+		<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+	  </form>
+	  <div class="form-container">
+	  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+	    <br/>
+	    <center><h3>Not a Pizza Hi's User?</h3></center>
+	    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+	    </div>
+	</div>
+
+
+
+<!--Navigation Bar-->
+<nav style="margin-bottom:20px;">
+	<ul>
+		<li><a href="Homepage_MembershipProfile.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+		<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+		<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+		<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+		<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+		<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+	</ul>
+</nav>
+</div>
+
+
+	<!-- Image Slider -->
+	<div class='container'>
+		<div class="ism-slider" data-play_type="loop" id="my-slider">
+		  <ol>
+		  	<li>
+		    	<video muted autoplay="autoplay" loop="loop">
+		    		<source  src="Slider Image/pizza.mp4" type="video/mp4">
+		       	</video>
+		    </li>
+		    <li>
+		      <a href="#AwesomeComboDeal"><img src="Slider Image/Awesome Combo Deal.jpg"></a>
+		    </li>
+		    <li>
+		      <a href="#DoubleBox"><img src="Slider Image/Double Box(Adversitsing).jpg"></a>
+		    </li>
+		    <li>
+		      <a href="#TripleBox"><img src="Slider Image/Triple Box.jpg" height="340px" width="1030px"></a>     
+		    </li>
+		    <li>
+		      <a href="#OnTheGo1"><img src="Slider Image/On The GO 1.jpg" height="340px" width="1030px"></a>     
+		    </li>
+		  </ol>
+		</div>
+	</div>
+	
+	<br/><br/>
+	
+	<!-- Table show the promotion -->
+	<center><h1 style="color:red;"><img src="Web Page Image (Koh Xin Hao)/logo.png"/>&nbsp;<b>Pizza Hi Promotion</b></h1></center>
+	<table>
+		<tr>
+		<td class="tbl"> 
+				<img src="Slider Image/Awesome Combo Deal.jpg"  id="AwesomeComboDeal"/>
+				<h4> &nbsp;Awesome Combo Deal</h4>
+				<h5>
+					 &nbsp;2 Regular Pizza + Fried Chicken + Bread<br/>&nbsp; + 1 Pepsi Black (1.5 L)<br/>
+					<sup> &nbsp;RM</sup>  <font color="red">59.90</font>
+					<button class="btn" onclick="popUp()"><img src="Web Page Image (Koh Xin Hao)/shopping-cart.png"/>&nbsp;&nbsp;Add To Cart</button>
+				</h5>
+			</td>
+			<td class="tbl">
+				<img src="Slider Image/On The GO 1.jpg" id="OnTheGo1"/>
+				<h4>&nbsp;On The Go 1</h4>
+				<h5>
+					&nbsp;1 Perosnal Pizza + 1 Cream of Mushroom Soup<br />&nbsp; + 1 Pepsi Black (500 ml)<br/>
+					<sup>&nbsp;RM</sup>  <font color="red">16.90</font>
+					<button class="btn" onclick="popUp()" style="left: -5px; top: 0px"><img src="Web Page Image (Koh Xin Hao)/shopping-cart.png"/>&nbsp;&nbsp;Add To Cart</button>
+				</h5>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align:top" class="tbl">
+				<img src="Slider Image/Triple Box.jpg" id="TripleBox"/>
+				<h4> &nbsp;Triple Box</h4>
+				<h5>
+					&nbsp;3 Regular Pizza<br/>
+					<sup>&nbsp;RM</sup>  <font color="red">39.90</font>
+					<button class="btn" onclick="popUp()" style="left: 4px; top: -4px"><img src="Web Page Image (Koh Xin Hao)/shopping-cart.png"/>&nbsp;&nbsp;Add To Cart</button>
+				</h5>
+			</td>
+			<td style="vertical-align:top;" class="tbl">
+				<img src="Slider Image/Double Box(Adversitsing).jpg" id="DoubleBox"/>
+				<h4>&nbsp;Double Box</h4>
+				<h5>
+					 &nbsp;2 Regular Pizza<br/>
+					<sup> &nbsp;RM</sup> <font color="red">32.90</font>
+					<button class="btn" onclick="popUp()" style="left: -1px; top: -8px"><img src="Web Page Image (Koh Xin Hao)/shopping-cart.png"/>&nbsp;&nbsp;Add To Cart</button>
+				</h5>
+			</td>
+		</tr>
+	</table>
+	
+	<!--Footer-->
+<footer style="margin-top:15px;"> 
+	<div>
+		<img src="general/logo.png"/>
+		<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+	</div>
+	<div>
+		<p>
+		Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+		Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+		Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+		Any suggentions to us? <br/>
+		<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+		</p>
+	</div>
+</footer>
+
+</body>
+</html>

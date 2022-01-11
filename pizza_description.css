@@ -1,0 +1,60 @@
+﻿*{
+	box-sizing:border-box;
+}
+#pizza{
+	height:40%;
+	width:65%;
+}
+#food_type{
+	width:25px;
+	height:25px;
+}
+.crust{
+	width:25px;
+	height:25px;
+}
+article > div{
+	float:left;
+}
+#descriptn{
+	width:60%;
+	height:100%;
+}
+.incre_btn{
+	float:left;
+}
+input{
+	float:left;
+	width:25px;
+	text-align:center;
+}
+.increment{
+	width:16px;
+	height:16px;
+	float:left;
+}
+.pizzatype{
+	width:60%;
+}
+.price{
+	width:15%;
+}
+.btn{
+	width:25%;
+}
+#cartbtn{
+	position:absolute;
+	bottom:4%;
+	right:2%;
+	width:10%;
+	height:7%;
+	background-color: red; 
+	color: white; 
+	opacity: 0.8;
+}
+#cartbtn:hover{
+	opacity:1;
+}
+article{
+	text-align:left;
+}

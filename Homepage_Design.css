@@ -1,0 +1,95 @@
+﻿/* Body size */
+body{
+	min-height:600px;
+	min-width:800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* Table width */
+table{
+	min-width:70%;
+	margin-left:auto;
+	margin-right:auto;
+	border-spacing:5px;
+}
+
+/* Special font style */
+@font-face{
+	font-family:font-Style1;
+	src: url('Roboto-Medium.TTF');
+}
+
+/* Table alignment */
+table>tr
+{
+	min-width:800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* Font style for table */
+td>h4{
+	font-family: "font-Style1";
+	font-size:29px;
+	color:red;
+}
+
+td>h5{
+	font-family:"Times New Roman", Times, serif;
+	font-size:23px;
+	float:left;
+}
+
+sup{
+	color:red;
+}
+
+/* Button style (Add To Cart) */
+.btn{
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.8;
+	position: relative;
+	margin-left:300px;
+	background-color:#2d58ff;
+	color:white;
+	margin-bottom:-20px;
+}
+
+/* Add to Cart button image size */
+button img{
+	width:20px;
+	height:20px;
+}
+
+/* Button hover style */
+.btn:hover {
+  opacity: 1;
+}
+
+/* Heading Image Size */
+center h1 img{
+	width:38px;
+	height:38px;
+}
+
+/* Nackgroud Color for table */
+.tbl {
+	background-color:#dbdbdb;
+	opacity:0.8;
+}
+
+/* Table hover style */
+.tbl:hover{
+	opacity: 1;
+}
+
+/* Table Image Style */
+td>img{
+	width:100%;
+
+}
+
+

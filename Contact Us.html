@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Contact Us</title>
+<script>
+window.onload = function(){
+	var path = window.location.hash;
+	console.log(path);
+	display(path);
+}
+
+/*The function is called whenever the hash change*/
+window.onhashchange = function(){
+	var path = window.location.hash;
+	console.log(path);
+	
+	document.getElementById('about').style.display = "none";
+	document.getElementById('contact_us').style.display = "none";
+	document.getElementById('location').style.display = "none";
+	display(path);
+}
+
+function display(path){
+	if(path=='#about')
+	{
+		document.getElementById('about').style.display = "block";
+	}
+	else if(path=='#contact_us')
+	{
+		document.getElementById('contact_us').style.display = "block";
+	}
+	else if(path=='#location')
+	{
+		document.getElementById('location').style.display = "block";
+	}
+	else
+	{
+		document.getElementById('about').style.display = "block";
+		//display default content
+	}
+}
+
+</script>
+<script>
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	
+	</script>
+
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+<style type="text/css">
+article{
+	padding-left:20%;
+	padding-right:20%;
+}
+#map_pic img{
+	clear:both;
+	min-width:450px;
+	min-height:450px;
+	width:auto;
+	height:auto;
+}
+.wrap_content{
+	float:left;
+	display:none;
+	width:100%;
+	border:medium #FFCC99 double;
+	padding:5%;
+	margin-bottom:20px;
+}
+#location ul{
+	list-style-type:square;
+}
+#location li{
+	float:left;
+	margin:2%;
+}
+#contact_us{
+	text-align:left;
+	font-size:larger;
+}
+#contact_us .icon{
+	width:40px;
+	height:40px;
+	margin-right:10px;
+}
+#contact_us li{
+	vertical-align:middle;
+	padding-bottom:30px;
+	text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<!--Logo-->
+<a href="Homepage_Login.html">
+	<div class="logo">
+		<img src="general/logo.png"/>
+	</div>
+</a>
+
+<!--Top part-->
+<div class="top">
+<!--Header-->
+<header>
+	<marquee>24 Hours Delivery 1800-888-999</marquee>
+	<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+</header>
+
+<!-- Login form -->
+	<div class="form-popup" id="myForm">
+	  <form class="form-container">
+	    <center><h1>Login</h1></center>
+	
+	    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+	    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+	
+	    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+		<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+	  </form>
+	  <div class="form-container">
+	  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+	    <br/>
+	    <center><h3>Not a Pizza Hi's User?</h3></center>
+	    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+	    </div>
+	</div>
+
+
+
+<!--Navigation Bar-->
+<nav>
+	<ul>
+		<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+		<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+		<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+		<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+		<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+		<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+	</ul>
+</nav>
+</div>
+
+<!--Main Content-->
+<article>
+	<div id="map_pic">
+		<map id="about_map" name="about_map">
+			<area alt="" coords="47, 213, 57, 150, 111, 82, 198, 45, 262, 49, 332, 79, 380, 128, 403, 217" href="#about" shape="poly" />
+			<area alt="" coords="47, 216, 59, 298, 124, 373, 231, 411, 231, 212" href="#contact_us" shape="poly" />
+			<area alt="" coords="229, 214, 232, 410, 317, 383, 386, 317, 407, 214" href="#location" shape="poly" />
+		</map>
+		<img src="about us/Map.png" usemap="#about_map"/>
+	</div>
+
+	<!--About Us-->
+	<div id="about" class="wrap_content">
+	<h1>About Us</h1>
+	<p>	
+		Pizza Hi featuring a delicious cuisine that includes the world’s favorite pan pizza with numerous crusts that suit the modern individuals' flavor. Other than that, signature dishes served as an important sides order that enable customers to have wider range of choice. 
+	</p>
+	<p>
+		There are two different concepts: Pizza Hi Dine In & Pizza Hi Delivery. Pizza Hi Dine In offers a cozy & friendly atmosphere, which makes it the perfect place for one to relax, unwind & have a great time with family or friends. At the other hand, Pizza Hi Delivery provides guaranteed hot & fresh pizza within delivery time as promised. 
+	</p>
+	<p>
+		Delivering more than hundreds of pizzas a day, Pizza Hi manage to compete with other pizza restaurants. Pizza Hi aims to become the world’s leading and fastest growing pizza delivery company. To archive this, product quality and operational excellence become the main factor to be considered by Pizza Hi. 
+	</p>
+	<p>
+		Pizza Hi continues to strive towards delivering quality service and products to enhance customer satisfaction. By making use of modern technology, Pizza Hi is on its way to strike its sales performance by providing a precise, useful platform. 
+	</p>
+	</div>
+	
+	<!--Store Location-->
+	<div id="location" class="wrap_content">
+	<h1>Store Location</h1>
+		<address>
+			<ul>
+				<li>
+					<strong>Pizza Hi Main Restaurant</strong><br/>
+					322 Jalan Hibiscus,<br/>
+					40150 Shah Alam,<br/>
+					Selangor Darul Ehsan.<br/><br/>	
+				</li>
+				<li>
+					<strong>Pizza Hi Cheras Branch</strong><br/>
+					62 Jalan Harimau,<br/>
+					43200 Cheras,<br/>
+					Kuala Lumpur.<br/>
+				</li>
+				<li>
+					<strong>Pizza Hi Shah Alam 2nd Branch</strong><br/>
+					352 Jalan Rose,<br/>
+					40150 Shah Alam,<br/>
+					Selangor Darul Ehsan.<br/><br/>	
+				</li>
+				<li>
+					<strong>Pizza Hi 2nd Cheras Branch</strong><br/>
+					62 Jalan Tapir,<br/>
+					43200 Cheras,<br/>
+					Kuala Lumpur.<br/>
+				</li>
+				<li>
+					<strong>Pizza Hi Food Delivery</strong><br/>
+					12 Jalan Orkid,<br/>
+					40150 Shah Alam,<br/>
+					Selangor Darul Ehsan.<br/><br/>	
+				</li>
+				<li>
+					<strong>Pizza Hi 3rd Cheras Branch</strong><br/>
+					22 Jalan Buaya,<br/>
+					43200 Cheras,<br/>
+					Kuala Lumpur.<br/>
+				</li>
+			</ul>		
+		</address>
+	</div>
+			
+	<!--Contact Us-->
+	<div id="contact_us" class="wrap_content">
+	<h1>Contact Us</h1>
+	<ul>
+		<li>Facebook : <a href="http://www.facebook.com/pizzaHi"> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a></li>
+		<li>Email : <a href="pizzaHi@kmail.com"> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a></li>
+		<li>Fax : <a href="fax:03-938 9379"> <img src="general/fax.png" class="icon"/> 03-938 9379</a></li>
+		<li>Tel : <a href="tel:1800-888-999"> <img src="general/telephone.png" class="icon"/> 1800-888-999</a></li>
+	</ul>
+	</div>
+</article>
+	
+<!--Footer-->
+<footer> 
+	<div>
+		<img src="general/logo.png"/>
+		<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+	</div>
+	<div>
+		<p>
+		Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+		Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+		Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+		Any suggentions to us? <br/>
+		<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+		</p>
+	</div>
+</footer>
+
+</body>
+
+</html>

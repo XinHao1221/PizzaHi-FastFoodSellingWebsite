@@ -1,0 +1,48 @@
+﻿/* Margin Style */
+body{
+	min-width:800px;
+	width:100%;
+}
+
+/* Heading style */
+article h1{
+	text-align:center;
+	color:blue;
+	font-size:38px;
+	font-family:style1;
+}
+
+/* Heading's image size */
+center img{
+	width:160px;
+	height:160px;
+}
+
+/* Table style */
+table tr td{
+	text-align:left;
+	font-family:style1;
+	font-size:24px;
+}
+
+/* Size for image icon inside the table */
+td img{
+	width:23px;
+	height:23px;
+}
+
+/* Font Style for table */
+@font-face{
+	font-family:style1;
+	src: url('Chunkfive.otf');
+}
+
+/* Style for edit button */
+.editButton{
+	opacity:0.8;
+}
+
+.editButton:hover{
+	opacity:1;
+	cursor:pointer;
+}

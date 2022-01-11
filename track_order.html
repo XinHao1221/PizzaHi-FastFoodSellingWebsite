@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Track Order</title>
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+
+<style>
+*{
+	box-sizing:border-box;
+}
+.tracker{
+	float:left;
+	width:12.5%;
+}
+.container{
+	width:80%;
+	padding: 15px;
+	margin:0 10%;
+}
+#trackRow{
+	padding: 15px;
+}
+.trackImg{
+	width:100%;
+	border:thin black solid;
+}
+.trackBtn{
+	background-color: red; 
+	color: white; 
+	opacity: 0.8;
+	border:0;
+	margin:3% 0;
+	width:100%;
+}
+.trackBtn:hover{
+	opacity:1;
+}
+</style>
+</head>
+
+<body>
+<!--Logo-->
+	<a href="Homepage_Login.html">
+		<div class="logo">
+			<img src="general/logo.png"/>
+		</div>
+	</a>
+	
+	<!--Top part-->
+	<div class="top">
+	<!--Header-->
+	<header>
+		<marquee>24 Hours Delivery 1800-888-999</marquee>
+		<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+	</header>
+	
+	<!-- Login form -->
+		<div class="form-popup" id="myForm" style="float:left;">
+		  <form class="form-container">
+		    <center><h1>Login</h1></center>
+		
+		    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+		    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+		
+		    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+		    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+			<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+		  </form>
+		  <div class="form-container">
+		  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+		    <br/>
+		    <center><h3>Not a Pizza Hi's User?</h3></center>
+		    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+		    </div>
+		</div>
+	
+	<!--Navigation Bar-->
+	<nav>
+		<ul>
+			<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+			<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+			<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+			<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+			<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+			<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+		</ul>
+	</nav>
+	</div>
+	
+	<!--Content-->
+	<article>
+		<div class="container">
+			<div id="trackRow">
+				<h1>Order Tracker</h1>
+				<div class="tracker">
+					<img src="tracking_icon/Order%20Placed.png" alt="Order Placed" id="orderPlaced" class="trackImg"/>
+				</div>
+				<div class="tracker">
+					<img src="tracking_icon/Preparing.png" alt="Preparing" id="preparing" class="trackImg"/>
+				</div>
+				<div class="tracker">
+					<img src="tracking_icon/Baking.png" alt="Baking" id="baking" class="trackImg"/>
+				</div>
+				<div class="tracker">
+					<img src="tracking_icon/Boxing.png" alt="Boxing" id="boxing" class="trackImg"/>
+				</div>
+				<div class="tracker">
+					<img src="tracking_icon/Packing.png" alt="Packing" id="packing" class="trackImg"/>
+				</div>
+				<div class="tracker">
+					<img src="tracking_icon/Preparing%20For%20Delivery.png" alt="Preparing For Delivery" id="prep4Delivery" class="trackImg"/>
+				</div>
+				<div class="tracker">
+					<img src="tracking_icon/Delivering.png" alt="Delivering" id="delivering" class="trackImg"/>
+				</div>
+				<div class="tracker">
+					<img src="tracking_icon/Order%20Completed.png" alt="Order Completed" id="orderCompleted" class="trackImg"/>
+				</div>
+			</div>
+		
+		<div style="width:25%; margin-left:37.5%; margin-top:30%;">
+			<h3><b style="text-decoration:underline">Track Order</b></h3>
+			Please key in purchaser phone number
+			<input type="text" placeholder="Enter Phone Number ( Without dash ' - ' )" maxlength="11" id="searcher" style="width:100%"/>
+			<br/>
+			<button type="submit" class="trackBtn" onclick="checkOrder()">TRACK</button>
+			<br/><br/>
+		</div>
+	</article>
+	
+	<!--Footer-->
+	<footer> 
+		<div>
+			<img src="general/logo.png"/>
+			<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+		</div>
+		<div>
+			<p>
+			Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+			Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+			Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+			Any suggentions to us? <br/>
+			<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+			</p>
+		</div>
+	</footer>
+	
+	<script>
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}	
+	
+	/* Used to track order */
+	function checkOrder(){
+		var phoneNum = document.getElementById("searcher").value;	
+		
+		document.getElementById("orderPlaced").style.border="thin solid black";
+		document.getElementById("preparing").style.border="thin solid black";
+		document.getElementById("baking").style.border="thin solid black";
+		document.getElementById("boxing").style.border="thin solid black";
+		document.getElementById("packing").style.border="thin solid black";
+		document.getElementById("prep4Delivery").style.border="thin solid black";
+		document.getElementById("delivering").style.border="thin solid black";
+		document.getElementById("orderCompleted").style.border="thin solid black";
+
+		switch(phoneNum){
+			case "01234567890":
+				document.getElementById("orderPlaced").style.border="thick solid red";
+				break;
+			case "01234567891":
+				document.getElementById("preparing").style.border="thick solid red";
+				break;
+			case "01234567892":
+				document.getElementById("baking").style.border="thick solid red";
+				break;
+			case "01234567893":
+				document.getElementById("boxing").style.border="thick solid red";
+				break;
+			case "01234567894":
+				document.getElementById("packing").style.border="thick solid red";
+				break;
+			case "01234567895":
+				document.getElementById("prep4Delivery").style.border="thick solid red";
+				break;
+			case "01234567896":
+				document.getElementById("delivering").style.border="thick solid red";
+				break;
+			case "01234567897":
+				document.getElementById("orderCompleted").style.border="thick solid red";
+				break;
+			default:
+				alert('There is no order using this phone number !!!');
+				break;
+		}
+	}	
+	
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>Job Vacancy</title>
+		
+	<!-- Linking for CSS and Javascript -->
+	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+	<link href="Job Vacancy_Design.css" type="text/css" rel="stylesheet"/>
+	<link href="template.css" rel="stylesheet" type="text/css"/>
+	<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+
+	
+	<!-- Javascript that allow user to upload image -->
+	<script>
+		function readURL(input) {
+	        if (input.files && input.files[0]) {
+	            var reader = new FileReader();
+	
+	            reader.onload = function (e) {
+	                $('#blah')
+	                    .attr('src', e.target.result)
+	                    .width(1000)
+	                    .height(2000);
+	            };
+	
+	            reader.readAsDataURL(input.files[0]);
+	        }
+	    }
+	    
+	    var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	    
+	   </script>
+	<!--[if IE]>
+	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->		
+	
+</head>
+	
+<body>
+
+	<!--Logo-->
+<a href="Homepage_Login.html">
+	<div class="logo">
+		<img src="general/logo.png"/>
+	</div>
+</a>
+
+<!--Top part-->
+<div class="top">
+<!--Header-->
+<header>
+	<marquee>24 Hours Delivery 1800-888-999</marquee>
+	<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+</header>
+
+<!-- Login form -->
+	<div class="form-popup" id="myForm">
+	  <form class="form-container">
+	    <center><h1>Login</h1></center>
+	
+	    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+	    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+	
+	    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+		<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+	  </form>
+	  <div class="form-container">
+	  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+	    <br/>
+	    <center><h3>Not a Pizza Hi's User?</h3></center>
+	    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+	    </div>
+	</div>
+
+
+
+<!--Navigation Bar-->
+<nav style="margin-bottom:20px;">
+	<ul>
+		<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+		<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+		<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+		<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+		<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+		<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+	</ul>
+</nav>
+</div>
+
+
+	<center><h1>Job Vacancy in Our Company &nbsp;&nbsp;<img src="Web Page Image (Koh Xin Hao)/Job Vacancy in our company.png"></h1></center>
+	
+	<!-- Form that allow user to input their information -->
+	<div class="row">
+		<div class="container">
+			<form action="Job Vacancy Successful.html" method="POST">
+				<div class="row">
+					<div class="col-50">
+						<center>
+							<div><img id="blah" src="Web Page Image (Koh Xin Hao)/Upload Image.png" style="	 width:280px;height:280px;"alt="your image" /></div>
+							<div><input type='file' onchange="readURL(this);" style="margin-top:20px; margin-bottom:40px;; color:aqua;"/></div>
+    					</center>						
+       					<label for="name"><img src="Web Page Image (Koh Xin Hao)/Cardholder Name.png"/>&nbsp;&nbsp;Name</label>
+						<input type="text" id="name" name="name" placeholder="Name" pattern="[a-zA-Z/'. ]{2,}" title="More than one character is required" required>
+						<label for="Email"><img src="Web Page Image (Koh Xin Hao)/Email.png"/>&nbsp;&nbsp;Email</label>
+						<input type="email" id="Email" name="name" placeholder="pizzaHi@kmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+						<label for="telno"><img src="Web Page Image (Koh Xin Hao)/Phone.png"/>&nbsp;&nbsp;Telephone Number</label>
+						<input type="text" id="telno" name="telno" placeholder="012-3456789" pattern="[0-9 -]{10,}" title="Must be in interger form and 10 digit" required>
+						<label for="age"><img src="Web Page Image (Koh Xin Hao)/Age.png"/>&nbsp;&nbsp;Age</label>
+						<input type="text" id="age" name="age" placeholder="eg. 18" maxlength="3" pattern="[0-9]{2,}" title="Age must in integer form" required>
+						<label for="gender"><img src="Web Page Image (Koh Xin Hao)/Gender.png"/>&nbsp;&nbsp;Gender</label>
+							<select id="gender" name="gender" required>
+								<option value="">Please Select</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+
+						<label for="Employment Status"><img src="Web Page Image (Koh Xin Hao)/Employment Status.png"/>&nbsp;&nbsp;Employment Status</label>
+							<select id="Employment Status" name="Employment Status" required>
+								<option value="">Please Select</option>
+								<option value="Full-Time">Full-Time</option>
+								<option value="Part-Time">Part-Time</option>
+							</select>
+						<label for="Job Position"><img src="Web Page Image (Koh Xin Hao)/Job Position.png"/>&nbsp;&nbsp;Job Position</label>
+							<select id="Job Position" name="Job Position" required>
+								<option value="">Please Select</option>
+								<option value="Cashier">Cashier</option>
+								<option value="Waiter">Waiter</option>
+								<option value="Supervisor">Supervisor</option>
+								<option value="Kitchen Assistant">Kictchen Assistant</option>
+							</select>
+						<label for="Minimum Salary (MYR)"><img src="Web Page Image (Koh Xin Hao)/Money.png"/>&nbsp;&nbsp;Minimum Salary (MYR) <font style="color:red;">*Optional</font></label>
+						<input type="text" id="Minimum Salary (MYR)" name="Minimum Salary (MYR)" value="RM "  maxlength="8">
+						<label for="Nationality"><img src="Web Page Image (Koh Xin Hao)/Card Issuing Country.png">&nbsp;&nbsp;Nationality</label>
+						<input type="text" id="Nationality" name="Nationality" placeholder="Malaysia" pattern="[A-za-z ]{2,}" title="More than one character is required" required>
+						<div><p>The application process will take up to 2 days. If your application is approved by the company, we will inform you via email or telephone call. Thanks for you application ^-^</p></div>					
+						<input type="submit" value="Submit" class="btn">				
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--Footer-->
+<footer style="margin-top:15px;"> 
+	<div>
+		<img src="general/logo.png"/>
+		<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+	</div>
+	<div>
+		<p>
+		Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+		Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+		Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+		Any suggentions to us? <br/>
+		<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+		</p>
+	</div>
+</footer>
+
+
+</body>
+
+</html>

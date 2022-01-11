@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Customize Pizza</title>
+
+<script>
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	
+	</script>
+<script>
+var output = document.getElementsByClassName('qty');
+//initialize the preview box contain
+var containNo = 0, contain = [-1,-1,-1];
+var qtyBefore = 0;
+
+//function that update the quantity
+function updateQty(i){
+	var qty = document.getElementsByName('i'+ parseInt(i+1))[0].value;
+	output[i].innerHTML = qty;
+	if(	qty > qtyBefore && containNo < 3){
+		addToPreview(i,qty);
+	}
+	else if(containNo < 0){
+		containNo = 0;
+	}
+	else{
+		removeToppings();
+	}
+	qtyBefore = qty;
+}
+
+function addToPreview(i,qty){
+		
+	//container is filled with ith ingredient image
+	containNo++;
+	contain[containNo-1] = i;
+	addToppings(i,containNo);
+		
+}
+
+//function that add toppings according to index
+function addToppings(i,containNo){
+	console.log('Add toppings');
+	var container;
+	if (containNo == 1){
+		container = document.getElementsByClassName('toppings1');
+	}
+	else if(containNo == 2){
+		container = document.getElementsByClassName('toppings2');
+	}
+	else if(containNo == 3){
+		container = document.getElementsByClassName('toppings3');
+	}
+	if (i == 0){ //capsicum
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/capsicum_slice.png";
+		}
+	}
+	else if (i == 1){ //chicken
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/chicken_slice.png";
+		}
+	}
+	else if (i == 2){ //meat
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/meat_slice.png";
+		}
+	}
+	else if (i == 3){ //mushroom
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/mushroom.png";
+		}
+	}
+	else if (i == 4){ //olive
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/olive_slice.png";
+		}
+	}
+	else if (i == 5){ //pineapple
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/Pineapple slice.png";
+		}
+	}
+	else if (i == 6){ //shrimp
+			for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/Shrimp.png";
+		}
+	}
+	else if (i == 7){ //tomato
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/tomato.png";
+		}
+	}
+	else if (i == 8){ //tuna
+		for(var x = 0; x < container.length; x++){
+			container[x].src = "topping/tuna_slice.png";
+		}
+	}
+	console.log(containNo);
+}
+
+//function that delete toppings in container
+function delToppings(containNo){
+	console.log('Delete toppings');
+	var container;
+	if (containNo == 0){
+		container = document.getElementsByClassName('toppings1');
+	}
+	else if(containNo == 1){
+		container = document.getElementsByClassName('toppings2');
+	}
+	else if(containNo == 2){
+		container = document.getElementsByClassName('toppings3');
+	}
+	for(var x = 0; x < container.length; x++){
+		container[x].src = "";
+	}
+	console.log(containNo);
+}
+
+function removeToppings(){
+	console.log('Remove toppings');
+	var container;
+	if (containNo == 1){
+		container = document.getElementsByClassName('toppings1');
+	}
+	else if(containNo == 2){
+		container = document.getElementsByClassName('toppings2');
+	}
+	else if(containNo == 3){
+		container = document.getElementsByClassName('toppings3');
+	}
+	for(var x = 0; x < container.length; x++){
+		container[x].src = "";
+	}
+	containNo--;
+	contain[containNo-1] = -1;
+	console.log(containNo);
+}
+
+function displayMsg(){
+	document.getElementById('successMsg').style.display = "block";
+}
+
+</script>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+h1{
+	margin-bottom:0;
+}
+article div{
+	display:block;
+	float:left;
+	margin:2%;
+}
+article{
+	min-width:800px;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+}
+div.preview{
+	display:block;
+	float:left;
+	width:40%;
+	height:50%;
+	margin-bottom:5%;
+	position:relative;
+}
+div.preview img{
+	height:100%;
+	width:100%;
+	position:relative;
+}
+div.preview .toppings1,div.preview .toppings2,div.preview .toppings3{
+	width:8%;
+	height:auto;
+	position:absolute;
+}
+div.toppings{
+	display:block;
+	width:50%;
+	height:250px;
+	overflow:auto;
+	list-style-type:none;
+	background-color:#f2f2f2;
+	border:medium #C1C1C1 solid;
+	padding:20px 20px 0px 20px;
+	border-radius:5px;
+}
+.toppings ul{
+	width:100%;
+}
+article ul li{
+	width:100%;
+	padding-bottom:20px;
+	display:block;
+	font-size:25px;
+	vertical-align:middle;
+	text-align:left;
+}
+.qty{
+	min-width:10px;
+	float:right;
+	color:#FFAD5A;
+}
+.slider{
+	width:30%;
+	margin-top:5px;
+	display:block;
+	float:right;
+}
+.slider input[type=range]{
+	-webkit-appearance:none;
+	appearance:none;
+	width:60%;
+	height:1em;
+	background:#FFCC99;
+	opacity:0.8;
+	outline:none;
+	transition:opacity .2s;
+}
+.slider input[type=range]:hover{
+	opacity:1;
+}
+.slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background:#FF9933;
+  cursor: pointer;
+}
+div.crust{
+	width:50%;	
+}
+div.crust img{
+	width:20%;
+	height:auto;
+}
+div.crust input{
+	width:2%;
+	vertical-align:middle;
+	display:inline-block;
+}
+article input[type=button]{
+	position:absolute;
+	top:620px;
+	left:82%;
+	width:10%;
+	background-color:#FFEB8E;
+	border:medium #FFEB8E outset;
+	border-radius:50px;
+	font-weight:bold;
+}
+article input[type=button]:active{
+	background-color:#FFE04F;
+	border:medium #FBCF00 inset;
+}
+#successMsg{
+	z-index:1;
+	width:40%;
+	border:thick #FFEB8E double;
+	border-radius:10px;
+	background-color:#FFF4C1;
+	font-size:large;
+	font-family:Aller;
+	color:black;
+	display:none;
+	position:fixed;
+	top:40%;
+	left:30%;
+}
+#successMsg a{
+	display:block;
+	margin:auto;
+	width:20%;
+	text-decoration:none;
+	color:black;
+	background-color:#FFEB8E;
+	border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!--Logo-->
+<a href="Homepage_Login.html">
+	<div class="logo">
+		<img src="general/logo.png"/>
+	</div>
+</a>
+
+<!--Top part-->
+<div class="top">
+<!--Header-->
+<header>
+	<marquee>24 Hours Delivery 1800-888-999</marquee>
+	<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+</header>
+
+<!-- Login form -->
+	<div class="form-popup" id="myForm">
+	  <form class="form-container">
+	    <center><h1>Login</h1></center>
+	
+	    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+	    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+	
+	    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+		<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+	  </form>
+	  <div class="form-container">
+	  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+	    <br/>
+	    <center><h3>Not a Pizza Hi's User?</h3></center>
+	    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+	    </div>
+	</div>
+
+
+
+<!--Navigation Bar-->
+<nav style="margin-bottom:20px;">
+	<ul>
+		<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+		<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+		<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+		<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+		<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+		<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+	</ul>
+</nav>
+</div>
+
+<!--Main Content-->
+<article>
+	
+	<h1>Customize Pizza</h1>
+	
+	<!--Pizza preview image-->
+	<div class="preview">
+		<img src="customize pizza/Capture.PNG" alt="pizza preview"/>
+		<img class="toppings1" style="left: 58%; top: 37%"/>
+		<img class="toppings2" style="left: 44%; top: 58%"/>
+		<img class="toppings2" style="left: 44%; top: 28%"/>
+		<img class="toppings3" style="left: 30%; top: 37%"/>
+		<img class="toppings3" style="left: 58%; top: 50%"/>
+		<img class="toppings1" style="left: 30%; top: 50%"/>
+	</div>
+	
+	<!--Ingredient Lists-->
+	<form>
+	<div class="toppings">
+		<ul>
+			<li>
+				<img class="icon" src="topping/Capsicum.png"/>Capsicum
+				<div class="slider"><input type="range" min="0" max="3" name="i1" value="0" oninput="updateQty(0);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Chicken.png"/>Chicken
+				<div class="slider"><input type="range" min="0" max="3" name="i2" value="0" oninput="updateQty(1);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Meat.png"/>Meat
+				<div class="slider"><input type="range" min="0" max="3" name="i3" value="0" oninput="updateQty(2);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/mushroom.png"/>Mushroom
+				<div class="slider"><input type="range" min="0" max="3" name="i4"value="0" oninput="updateQty(3);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Olive.png"/>Olive
+				<div class="slider"><input type="range" min="0" max="3" name="i5" value="0" oninput="updateQty(4);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Pineapple.png"/>Pineapple
+				<div class="slider"><input type="range" min="0" max="3" name="i6" value="0" oninput="updateQty(5);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Shrimp icon.png"/>Shrimp
+				<div class="slider"><input type="range" min="0" max="3" name="i7" value="0" oninput="updateQty(6);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/tomato.png"/>Tomato
+				<div class="slider"><input type="range" min="0" max="3" name="i8" value="0" oninput="updateQty(7);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Tuna.png"/>Tuna
+				<div class="slider"><input type="range" min="0" max="3" name="i9" value="0" oninput="updateQty(8);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Thousand Island sauce.png"/>Thousand Island
+				<div class="slider"><input type="range" min="0" max="3" name="i10" value="0" oninput="updateQty(9);"/></div>
+				<span class="qty">0</span>
+			</li>
+			<li>
+				<img class="icon" src="topping/Tomato sauce.png"/>Tomato Slice
+				<div class="slider"><input type="range" min="0" max="3" name="i11" value="0" oninput="updateQty(10);"/></div>
+				<span class="qty">0</span>
+			</li>
+		</ul>
+	</div>
+	
+	<!--Crust type option-->
+	<div class="crust">
+		<img src="customize pizza/classic.png"/>
+		<input value="classic" type="radio" name="crust"/>
+		<img src="customize pizza/thin.png"/>
+		<input value="thin" type="radio" name="crust"/>
+		<img src="customize pizza/newyork.png"/>
+		<input value="thick" type="radio" name="crust"/>
+		<img src="customize pizza/cheese.png"/>
+		<input value="cheese" type="radio" name="crust"/>
+	</div>
+	
+	<!--Submit Button-->
+	<input type="button" value="Submit" onclick="displayMsg();"/>
+	</form>
+	
+	<div id="successMsg">You have successfully customize a pizza <br/> <a href="menu.html">Done</a></div>
+</article>
+	
+<!--Footer-->
+<footer> 
+	<div>
+		<img src="general/logo.png"/>
+		<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+	</div>
+	<div>
+		<p>
+		Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+		Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+		Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+		Any suggentions to us? <br/>
+		<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+		</p>
+	</div>
+</footer>
+
+</body>
+
+</html>

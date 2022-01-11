@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Delivery Info</title>
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+<style>
+*{
+	box-sizing:border-box;
+}
+article{
+	text-align:left;
+}
+#container{
+	width:60%;
+	margin:0px 20%;
+	padding: 15px 20px 40px 20px;
+	background-color:#fff9bf;}
+div ol li{
+	float:left;
+	width:100%;
+	padding:10px;
+}
+.manageBtn{
+	position:absolute;
+	right:22.5%;
+}
+input[type=checkbox]{
+	float:right;
+}
+h1,h2{
+	text-align:center;
+}
+.dateTime{
+	width:50%;
+	float:left;
+}
+#subBtn{
+	position:absolute;
+	bottom:0;
+	right:22.5%;
+	width:10%;
+	height:7%;
+	background-color: red; 
+	color: white; 
+	opacity: 0.8;
+}
+#subBtn:hover{
+	opacity:1;
+}
+</style>
+</head>
+
+<body>
+	<!--Logo-->
+	<a href="Homepage_Login.html">
+		<div class="logo">
+			<img src="general/logo.png"/>
+		</div>
+	</a>
+	
+	<!--Top part-->
+	<div class="top">
+	<!--Header-->
+	<header>
+		<marquee>24 Hours Delivery 1800-888-999</marquee>
+		<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+	</header>
+	
+	<!-- Login form -->
+		<div class="form-popup" id="myForm">
+		  <form class="form-container">
+		    <center><h1>Login</h1></center>
+		
+		    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+		    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+		
+		    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+		    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+			<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+		  </form>
+		  <div class="form-container">
+		  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+		    <br/>
+		    <center><h3>Not a Pizza Hi's User?</h3></center>
+		    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+		    </div>
+		</div>
+	
+	
+	
+	<!--Navigation Bar-->
+	<nav>
+		<ul>
+			<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+			<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+			<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+			<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+			<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+			<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+		</ul>
+	</nav>
+	</div>
+
+	<!--Content-->
+	<article>
+		<div id="container">
+			<div>
+				<h1>Order Info</h1>
+				<h2>Delivery</h2>
+			</div>
+			<div style="padding-left:10%;">
+				<div class="dateTime">
+					<b>Date</b> <br>
+					<input type="date" id="date"/>
+				</div>
+				<div class="dateTime">  
+					<b>Time</b> <br>
+					<input type="time" id="time"/>
+				</div>
+			</div>
+			<div>
+				<h3>
+					Choose Address
+					<button type="button" class="manageBtn" onclick="window.location.href='Homepage_MembershipProfile.html'">Manage Address</button>
+				</h3>
+				
+				<ol>
+					<li>
+					Home
+					<input type="checkbox" name="deliveryAdd" onclick="onlyOne(this)" checked="checked"/>
+						<address class="homeAdd">
+							Sri Pelangi Condo, <br>
+							Jalan Genting Kelang, <br>
+							Taman Setapak, <br>
+							53100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur<br>
+						</address>
+					</li>
+					<li>
+					Office 
+					<input type="checkbox" name="deliveryAdd" onclick="onlyOne(this)"/>
+						<address class="homeAdd">
+							BG-04 (Ground Floor), Level 1 & 2 <br>
+							No. 42, Persiaran Greentown 1 <br>
+							Pusat Dagangan Greentown <br>
+							30450 Ipoh, Perak Darul Ridzuan <br>	
+						</address>
+					<br>
+					</li>
+				</ol>
+			</div>
+			<div>
+				<h3>
+					Choose Contact Number
+					<button type="button" class="manageBtn" onclick="window.location.href='Homepage_MembershipProfile.html'">Manage Contact</button>
+				</h3>
+				Contact<br>
+				<select name="contact">
+					<option value="0164953664">016-4923664</option>
+					<option value="0111236542">011-1236542</option>
+				</select>
+				<br><br><br>
+			</div>
+			<button type="submit" id="subBtn" onclick="window.location.href='Payment Page.html'">Confirm</button>
+		</div>
+	</article>
+	
+	<!--Footer-->
+	<footer> 
+		<div>
+			<img src="general/logo.png"/>
+			<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+		</div>
+		<div>
+			<p>
+			Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+			Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+			Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+			Any suggentions to us? <br/>
+			<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+			</p>
+		</div>
+	</footer>
+
+	<script>
+	/* To allow user to only choose one address */
+	function onlyOne(checkbox) {
+    	var checkboxes = document.getElementsByName('deliveryAdd')
+    	checkboxes.forEach((item) => {
+    	    if (item !== checkbox) item.checked = false
+		})
+	}
+	
+	/* To open and close the sign button */
+	var action = 1;
+	
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+
+	</script>
+</body>
+
+</html>

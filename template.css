@@ -1,0 +1,164 @@
+﻿
+@font-face{
+	font-family:Aller;
+	src: url('font/Aller_Rg.ttf') format('truetype');
+}
+@font-face{
+	font-family:AllerBold;
+	src: url('font/Aller_Bd.ttf') format('truetype');
+}
+@font-face{
+	font-family:HussarSzturm;
+	src: url('font/HussarSzturm.otf') format('opentype');
+}
+
+
+html{
+	background-color:#FFFAE3;
+}
+
+.top{
+	min-width:800px;
+	width:100%;
+}
+
+body{
+	width:100%;
+}
+
+header, nav, footer, .logo, header marquee, header a, ul, body{
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	float:left;
+	text-align:center;
+	margin:0;
+	padding:0;
+	font-family:Aller;
+	cursor:pointer;
+}
+
+.top, footer{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/*Theme color*/
+header, nav, .logo, footer{
+	background-color:rgba(0,0,0,0.8);
+	color:white;
+}
+
+/*For icon in the page*/
+.icon{
+	float:left;
+	min-width:20px;
+	min-height:20px;
+	width:1em;
+	height:1em;
+}
+
+/*Logo part*/
+.logo{
+	min-width:140px;
+	min-height:140px;
+	width:17.5%;
+	height:1em;
+}
+
+.logo:hover{
+	background-color:#666666;
+}
+.logo img{
+	padding-top:10px;
+}
+
+/*Header part*/
+header {
+	min-width:660px;
+	width:82.5%;
+	height:70px;
+}
+header > marquee{
+	width:88%;
+	height:50px;
+	padding-top:20px;
+	vertical-align:middle;
+	font-size:large;
+	font-family:HussarSzturm;
+}
+header > a{
+	/*Login link*/
+	width:10%;
+	height:46px;
+	padding-left:1%;
+	padding-right:1%;
+	padding-top:24px;
+	text-align:center;
+	display:block;
+	font-size:large;
+	font-family:AllerBold;
+	box-sizing:content-box;
+}
+header > a:hover{
+	background-color:#666666;
+}
+nav{
+	min-width:660px;
+	width:82.5%;
+	height:70px;
+}
+nav > ul{
+	width:100%;
+}
+nav > ul > li{
+	list-style-type:none;
+	padding-top:20px;
+	padding-left:2%;
+	height:50px;
+	text-align:left;
+	vertical-align:middle;
+	display:inline-block;
+	width:14.66%;
+	font-size:larger;
+	font-family:AllerBold;
+	float:left;
+	box-sizing:content-box;
+}
+nav > ul > li:hover{
+	background-color:#666666;
+	height:45px;
+	border-bottom:5px #FF0000 solid;
+}
+
+article{
+	min-height:595px;
+	font-family:Aller;
+}
+
+/*Footer part*/
+footer{
+	min-width:800px;
+	width:100%;
+}
+footer div{
+	margin:0;
+	float:left;
+	height:150px;
+}
+footer > div > img{
+	margin-top:10px;
+	width:60px;
+	height:60px;
+}
+footer div:first-child{
+	text-align:center;
+	min-width:500px;
+	width:62.5%;
+}
+footer div:nth-of-type(2){
+	line-height:20px;
+	text-align:left;
+	min-width:300px;
+	width:37.5%;
+}

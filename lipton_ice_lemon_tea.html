@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Lipton Ice Lemon Tea</title>
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+<link href="food_description.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+	<!--Logo-->
+	<a href="Homepage_Login.html">
+		<div class="logo">
+			<img src="general/logo.png"/>
+		</div>
+	</a>
+	
+	<!--Top part-->
+	<div class="top">
+	<!--Header-->
+	<header>
+		<marquee>24 Hours Delivery 1800-888-999</marquee>
+		<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+	</header>
+	
+	<!-- Login form -->
+		<div class="form-popup" id="myForm">
+		  <form class="form-container">
+		    <center><h1>Login</h1></center>
+		
+		    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+		    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+		
+		    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+		    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+			<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+		  </form>
+		  <div class="form-container">
+		  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+		    <br/>
+		    <center><h3>Not a Pizza Hi's User?</h3></center>
+		    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+		    </div>
+		</div>
+	
+	
+	
+	<!--Navigation Bar-->
+	<nav>
+		<ul>
+			<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+			<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+			<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+			<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+			<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+			<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+		</ul>
+	</nav>
+	</div>
+	
+	<!--Beverage Description-->
+	<article>
+		<div style="width: 30%; height:100%;">
+		<img src="beverage_img/LiptonIcedLemonTeaCan.png" alt="Lipton Ice Lemon Tea" style="margin:50% 0 50% 50px" id="prod_img"/>
+		</div>
+		<div id="descriptn" style="width:60%">
+			<h1>Lipton Ice Lemon Tea</h1>
+			<p>Lemon Tea.</p>
+			<br/>
+			<table>	
+				<tr>
+					<td class="prodsize">Can</td>
+					<td class="price">RM3.00</td>
+					<td class="btn">
+						<div>
+							<button id="down" onclick="down('0','can')" class="incre_btn" ><img src="btn_icon/minus.png" alt="minus" class="increment"/></button>
+	 					</div>
+							<input type="text" id="can" value="0"  />
+	 					<div>
+							<button id="up" onclick="up('10','can')" class="incre_btn" ><img src="btn_icon/plus.png" alt="add" class="increment"/></button>
+						</div>
+	            	</td>
+				</tr>
+				
+				<tr>
+					<td class="prodsize">Bottle</td>
+					<td class="price">RM5.00</td>
+					<td class="btn">
+						<div>
+							<button id="down" onclick="down('0','bottle')" class="incre_btn" ><img src="btn_icon/minus.png" alt="minus" class="increment"/></button>
+	 					</div>
+							<input type="text" id="bottle" value="0"  />
+	 					<div>
+							<button id="up" onclick="up('10','bottle')" class="incre_btn" ><img src="btn_icon/plus.png" alt="add" class="increment"/></button>
+						</div>
+	            	</td>
+				</tr>
+	
+			</table>
+		</div>
+		
+		<button type="submit" id="cartbtn" onclick="popup()">Add to my Cart</button>
+	
+	</article>
+	
+	<!--Footer-->
+	<footer> 
+		<div>
+			<img src="general/logo.png"/>
+			<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+		</div>
+		<div>
+			<p>
+			Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+			Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+			Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+			Any suggentions to us? <br/>
+			<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+			</p>
+		</div>
+	</footer>
+
+	<script>
+	var max, min, element, action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	
+	/* Increase the number of quantity by 1 */
+    function up(max,element) {
+	    document.getElementById(element).value = parseInt(document.getElementById(element).value) + 1;
+	    if (document.getElementById(element).value >= parseInt(max)) {
+	        document.getElementById(element).value = max;
+	    }
+	}
+	
+	/* Decrease the number of quantity by 1 */
+	function down(min,element) {
+	    document.getElementById(element).value = parseInt(document.getElementById(element).value) - 1;
+	    if (document.getElementById(element).value <= parseInt(min)) {
+	        document.getElementById(element).value = min;
+	    }
+	}
+	
+	/* Display pop up when product added to cart */
+	function popup(){
+		alert("Added to Cart");
+	}
+	</script>
+	
+</body>
+
+</html>

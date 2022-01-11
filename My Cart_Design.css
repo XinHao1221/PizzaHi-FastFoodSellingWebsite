@@ -1,0 +1,148 @@
+﻿/* MArgin Style */
+* {
+  box-sizing: border-box;
+}
+
+body{
+	min-width:800px;
+	width:100%;
+}
+
+/* Title Style */
+.title {
+  height: 60px;
+  border-bottom: 1px solid #E1E8EE;
+  padding: 20px 30px;
+  color: #5E6977;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.image,
+.quantity,
+.description{
+	margin-top:35px;
+}
+
+article {
+   font-family: 'Roboto', sans-serif;
+}
+
+
+/* Item Style */
+.item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+  margin-left:15%;
+  margin-right:15%;
+}
+
+.item:nth-child(3) {
+  border-top:  1px solid #E1E8EE;
+  border-bottom:  1px solid #E1E8EE;
+}
+
+/* Product Image */
+.image {
+  margin-right: 50px;
+}
+
+/* Product Description */
+.desciption{
+	margin-left:0.5%;
+	margin-right:15%;
+	margin-top:2%;
+}
+/*Responsive */
+@media (max-width: 800px) {
+  .Mycart {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .item {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .image img {
+    width: 50%;
+  }
+  .image,
+  .quantity,
+  .description {
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+    margin-right:100px;
+  }
+}
+
+/* Input Style */
+input[type=number]{
+	width:70%;
+	border: 3px solid #ccc;
+	padding:7px;
+	text-align:center;
+	cursor: pointer;
+}
+
+input[type = text]{
+	width: 32%;
+	border: 3px solid #ccc;
+	padding:7px;
+}
+
+article .voucher{
+	margin-left:4%;
+	float:left;
+}
+
+
+/* Button Style */
+.voucher-button{
+	width:13%;
+	background-color:#ccc;
+	border:none;
+	padding:9px;
+	cursor: pointer;
+	opacity:0.8;
+	margin-left:10px;
+	float: left;
+}
+
+.payment-button{
+    height:100%;
+  	float:left;
+	width:25%;
+	background-color:red;
+	font-size:25px;
+	opacity:0.8;
+	border:none;
+}
+
+
+/* Total Payment List */
+.totalPayment{
+	width:75%;
+	background-color:gray;
+	height:100%;
+	float:left;
+	line-height:0px;
+}
+
+/* button Hover */
+.payment-button:hover
+{
+	opacity:1;
+	cursor: pointer;
+}
+
+.voucher-button:hover{
+	opacity:1;
+}
+
+td{
+	text-align:right;
+}

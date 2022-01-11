@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>FAQ, T&C and Feedback</title>
+<script>
+
+//The function receives an tabName that indicates the id of tabcontent to be shown.. 
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+//The function stimulates a click on default button to open default page..
+window.onload = function(){
+	var path = window.location.hash;
+	console.log(path);
+	if(path == "#faq"){
+		document.getElementById("faq_btn").click();
+	}
+	else if(path == "#tc"){
+		document.getElementById("tc_btn").click();
+	}
+	else{
+		document.getElementById("feedback_btn").click(); //default
+	}
+}
+
+
+</script>
+<script>
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	
+	</script>
+
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+
+<style>
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 2px solid #FFCC00;
+  background-color: #FFCC66;
+  margin-left:auto;
+  margin-right:auto;
+  width:60%;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #FF9966;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #FF9933;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 2px solid #FFCC00;
+  border-top: none;
+  margin-left:auto;
+  margin-right:auto;
+  width:60%;
+}
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+#tc,#faq,#feedback{
+	text-align:left;
+	font-family:Aller;
+	margin-bottom:15px;
+	min-height:410px;
+}
+#faq li p:after{
+	content:"?";
+}
+#faq li blockquote{
+	quotes:"\201C""\201D";
+}
+#faq li blockquote:before{
+	content:open-quote;
+}
+#faq li blockquote:after{
+	content:close-quote;
+}
+#tc li{
+	font-size:large;
+	margin-bottom:2%;
+}
+#feedback textarea{
+	width:60%;
+	height:180px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#feedback input, label{
+	clear:both;
+	margin:1%;
+}
+#feedback input:focus:valid{
+	background-color:rgba(225,255,196,0.5);
+}
+#feedback input:focus:invalid{
+	background-color:rgba(255,200,200,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<!--Logo-->
+<a href="Homepage_Login.html">
+	<div class="logo">
+		<img src="general/logo.png"/>
+	</div>
+</a>
+
+<!--Top part-->
+<div class="top">
+<!--Header-->
+<header>
+	<marquee>24 Hours Delivery 1800-888-999</marquee>
+	<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+</header>
+
+<!-- Login form -->
+	<div class="form-popup" id="myForm">
+	  <form class="form-container">
+	    <center><h1>Login</h1></center>
+	
+	    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+	    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+	
+	    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+		<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+	  </form>
+	  <div class="form-container">
+	  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+	    <br/>
+	    <center><h3>Not a Pizza Hi's User?</h3></center>
+	    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+	    </div>
+	</div>
+
+
+
+<!--Navigation Bar-->
+<nav style="margin-bottom:20px;">
+	<ul>
+		<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+		<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+		<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+		<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+		<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+		<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+	</ul>
+</nav>
+</div>
+
+<!--Main Content-->
+<article>
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'faq')" id="faq_btn">FAQ</button>
+		<button class="tablinks" onclick="openTab(event, 'tc')" id="tc_btn">T&C</button>
+		<button class="tablinks" onclick="openTab(event, 'feedback')" id="feedback_btn">Feedback</button>
+	</div>
+	<div id="faq" class="tabcontent">
+		<h1>FAQ</h1>
+		<ol>
+			<li>
+				<p>What is Pizza Hi</p>
+				<blockquote>Pizza Hi is a food service provider that deliver various Italian cuisine, specifically pizza. Details can be viewed at <a>here</a>.</blockquote>
+			</li>
+			<li>
+				<p>How do I choose the pizza</p>
+				<blockquote>You may view the list of pizza by simply click on "Menu" at the navigation link above. Kindly select any pizza interested in the page.</blockquote>
+			</li>
+			<li>
+				<p>Where can I check the pizza choosen</p>
+				<blockquote>You may view the list of pizza chosen at "Add to Cart" the navigation link above.</blockquote>
+			</li>
+			<li>
+				<p>How can I track my order</p>
+				<blockquote>You can track your order at "Track Order" section.</blockquote>
+			</li>
+			<li>
+				<p>What can I do if I did not receive my pizza</p>
+				<blockquote>You may call 1-800-888-999 to enquire about your order.</blockquote>
+			</li>
+			<li>
+				<p>Is there any delivery charges</p>
+				<blockquote>The services is free of charge with minimum order or RM20.</blockquote>
+			</li>
+			<li>
+				<p>Can I cancel my order</p>
+				<blockquote>Once payment is made, no refund will be returned.</blockquote>
+			</li>
+			<li>
+				<p>Why there is a login button on top left of the page</p>
+				<blockquote>The button let user to sign in to their member account.</blockquote>
+			</li>
+			<li>
+				<p>How to become a member</p>
+				<blockquote>You may sign up at the login page. Follow the instructions and fill all the necessary information to sign up.</blockquote>
+			</li>
+			<li>
+				<p>Why becoming a member</p>
+				<blockquote>You will get updates on promos frequently. It lets you check your previous order history, deliver the best pizza preferences for you and more.</blockquote>
+			</li>
+			<li>
+				<p>Why the page is not responding</p>
+				<blockquote>This may cause by slow internet connection. You may try to refresh the page or wait for the page to respond. However, refreshing payment page is not recommended.</blockquote>
+			</li>
+			<li>
+				<p>Where can I submit my suggestions on the page</p>
+				<blockquote>You may feedback any suggestions <a onclick="openTab(event,'feedback')">here</a>.</blockquote>
+			</li>
+		</ol>
+	</div>
+	
+	<div id="tc" class="tabcontent">
+		<h1>Terms of use</h1>
+		<ol>
+			<li>All item prices are shown exclusive of tax. 6% tax charges apply for all the items.</li>
+			<li>Minimum order of RM20 applies for delivery.</li>
+			<li>Limited delivery areas apply.</li>
+			<li>Images shown is for illustrations only.</li>
+			<li>Savings are calculated based on A'la Carte prices.</li>
+			<li>Should any discrepancy occur in published price, the pricing at restaurant point of purchase is deemed final. </li>
+			<li>Pizza Hi Food Services Sdn Bhd reserves the right to change all rights, promotions, prices, offers without prior notice. </li>
+		</ol>
+	</div>
+	
+	<div id="feedback" class="tabcontent">
+		<h1>Feedback</h1>
+		<form>
+		<div>
+			<label>Name :</label>
+			<input type="text" name="name"/>
+			<label>Email address :</label>
+			<input type="email" name="email" placeholder="xxxxxxx@xxx.com"/>
+		</div>
+		<div>
+			<label style="vertical-align:top;">Feedback :</label>
+			<textarea name="context" cols="20" rows="2"></textarea>
+		</div>
+		<div>
+			<input type="submit"/>
+		</div>
+		</form>
+	</div>
+
+</article>
+	
+<!--Footer-->
+<footer> 
+	<div>
+		<img src="general/logo.png"/>
+		<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+	</div>
+	<div>
+		<p>
+		Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+		Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+		Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+		Any suggentions to us? <br/>
+		<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+		</p>
+	</div>
+</footer>
+
+</body>
+
+</html>

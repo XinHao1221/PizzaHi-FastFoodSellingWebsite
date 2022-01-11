@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Pizza Hi Survey</title>
+<script>
+var total = 0;
+
+function count(){
+	var question = 20, radios, output;
+	output = document.getElementById('successMsg');
+	total = 0; /*initialize the total*/
+	for (var i = 1; i <= question ; i ++){
+		radios = document.getElementsByName('q'+ i );
+		output.style.display = "block";
+		if (validateForm(radios)){
+			output.innerHTML = "<h4>You have successfully submit your survey<br/>We appreciate your support towards Pizza Hi<br/></h4><p> Total score given = <strong> " + total + "</strong></p><p><a href='Homepage_Login.html'>Done</a></p>";
+			/* actions to submit the form fall under here */
+		}
+		else {
+			output.innerHTML = "<p> Please fill up all the question :) <p>";
+			setInterval(function(){output.style.display = "none";},5000);
+		}
+	}
+}
+function validateForm(radios){
+		for (var i = 0; i < radios.length; i++)
+		{	
+			if (radios[i].checked){
+				console.log("Score given for this question is " + parseInt(radios[i].value));
+				total = parseInt(radios[i].value) + total;
+				return true;
+			}
+		}
+		return false;
+}
+
+function closeNote(){
+	document.getElementById('notes').style.display = 'none';
+	document.getElementById('curtain').style.display = 'none';
+}
+</script>
+<script>
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+	
+	</script>
+
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+<style type="text/css">
+#survey{
+	text-align:left;
+	border-collapse:collapse;
+	border:medium black solid;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#FFFEF7;
+}
+#survey thead{
+	background-color:#FFF191;
+}
+#survey thead th:first-of-type{
+	border-bottom:medium black solid;
+	font-size:x-large;
+	padding-left:10px;
+}
+#survey tbody th[colspan="6"]{
+	padding-top:20px;
+	padding-left:10px;
+	font-size:large;
+}
+#survey tr td:first-of-type{
+	padding-left:15px;
+}
+#survey tr td:last-of-type{
+	padding-right:20px;
+}
+#survey tr:last-of-type td{
+	padding-bottom:20px;
+}
+article button{
+	margin-top:20px;
+	margin-bottom:20px;
+	background-color:#FFEB8E;
+	border:medium #FFEB8E outset;
+}
+article button:active{
+	background-color:#FFE04F;
+	border:medium #FBCF00 inset;
+}
+#notes{
+	margin:0;
+	width:40%;
+	border:thin #FFFF66 solid;
+	z-index:2;
+	position:fixed;
+	top:40%;
+	left:30%;
+}
+#notes h4{
+	background-color:#FFFF66;
+	margin:0;
+}
+#notes p{
+	background-color:#FFFFCC;
+	margin:0;
+}
+#curtain{
+	width:100%;
+	height:100%;
+	z-index:1;
+	background-color:rgba(255,255,255,0.4);
+	position:fixed;
+	top:0;
+}
+#successMsg{
+	z-index:1;
+	width:60%;
+	border:thick #FFEB8E solid;
+	border-radius:10px;
+	background-color:#FFF4C1;
+	color:black;
+	display:none;
+	position:fixed;
+	top:40%;
+	left:20%;
+}
+#successMsg a{
+	display:block;
+	margin:auto;
+	width:20%;
+	text-decoration:none;
+	color:black;
+	background-color:#FFEB8E;
+	border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!--Logo-->
+<a href="Homepage_Login.html">
+	<div class="logo">
+		<img src="general/logo.png"/>
+	</div>
+</a>
+
+<!--Top part-->
+<div class="top">
+<!--Header-->
+<header>
+	<marquee>24 Hours Delivery 1800-888-999</marquee>
+	<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+</header>
+
+<!-- Login form -->
+	<div class="form-popup" id="myForm">
+	  <form class="form-container">
+	    <center><h1>Login</h1></center>
+	
+	    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+	    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+	
+	    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+		<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+	  </form>
+	  <div class="form-container">
+	  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+	    <br/>
+	    <center><h3>Not a Pizza Hi's User?</h3></center>
+	    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+	    </div>
+	</div>
+
+
+
+<!--Navigation Bar-->
+<nav style="margin-bottom:20px;">
+	<ul>
+		<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+		<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+		<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+		<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+		<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+		<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+	</ul>
+</nav>
+</div>
+
+<!--Main Content-->
+<article>
+	<div id="curtain" onclick="closeNote();"></div>
+	<div id="notes" onclick="closeNote();">
+		<h4>Notes</h4>
+		<p>1 star is not agree/satisfied, 5 stars is very agree/satisfied</p>
+	</div>
+
+
+	<h1>Online Survey</h1>
+	<form>
+	<table id="survey">
+		<thead>
+			<tr>
+				<th>Particulars</th>
+				<th><img src="survey/star1.png"/></th>
+				<th><img src="survey/star2.png"/></th>
+				<th><img src="survey/star3.png"/></th>
+				<th><img src="survey/star4.png"/></th>
+				<th><img src="survey/star5.png"/></th>
+			</tr>			
+		</thead>
+		<tbody>
+			<tr><th colspan="6">About you</th></tr>
+			<tr><td>Do you like to eat pizza?</td>
+				<td><input type="radio" name="q1" value="1"/></td><td><input type="radio" name="q1" value="2"/></td><td><input type="radio" name="q1" value="3"/></td><td><input type="radio" name="q1" value="4"/></td><td><input type="radio" name="q1" value="5"/></td></tr>
+			<tr><td>Do you often eat pizza?</td>
+				<td><input type="radio" name="q2" value="1"/></td><td><input type="radio" name="q2" value="2"/></td><td><input type="radio" name="q2" value="3"/></td><td><input type="radio" name="q2" value="4"/></td><td><input type="radio" name="q2" value="5"/></td></tr>
+			<tr><td>Do you eat pizza with people around you?</td>
+				<td><input type="radio" name="q3" value="1"/></td><td><input type="radio" name="q3" value="2"/></td><td><input type="radio" name="q3" value="3"/></td><td><input type="radio" name="q3" value="4"/></td><td><input type="radio" name="q3" value="5"/></td></tr>
+			<tr><td>Do you order pizza in large quantity?</td>
+				<td><input type="radio" name="q4" value="1"/></td><td><input type="radio" name="q4" value="2"/></td><td><input type="radio" name="q4" value="3"/></td><td><input type="radio" name="q4" value="4"/></td><td><input type="radio" name="q4" value="5"/></td></tr>
+			<tr><td>How likely you would choose to eat pizza than other food?</td>
+				<td><input type="radio" name="q5" value="1"/></td><td><input type="radio" name="q5" value="2"/></td><td><input type="radio" name="q5" value="3"/></td><td><input type="radio" name="q5" value="4"/></td><td><input type="radio" name="q5" value="5"/></td></tr>
+			<tr><td colspan="6">Other comments : <input type="text" placeholder="(optional)"/></td></tr>
+
+			<tr><th colspan="6">Overview of Pizza Hi</th></tr>
+			<tr><td>Are you a frequent customer of Pizza Hi?</td>
+				<td><input type="radio" name="q6" value="1"/></td><td><input type="radio" name="q6" value="2"/></td><td><input type="radio" name="q6" value="3"/></td><td><input type="radio" name="q6" value="4"/></td><td><input type="radio" name="q6" value="5"/></td></tr>
+			<tr><td>Have you ever seen Pizza Hi advertisement?</td>
+				<td><input type="radio" name="q7" value="1"/></td><td><input type="radio" name="q7" value="2"/></td><td><input type="radio" name="q7" value="3"/></td><td><input type="radio" name="q7" value="4"/></td><td><input type="radio" name="q7" value="5"/></td></tr>
+			<tr><td>Is Pizza Hi well-known at your place?</td>
+				<td><input type="radio" name="q8" value="1"/></td><td><input type="radio" name="q8" value="2"/></td><td><input type="radio" name="q8" value="3"/></td><td><input type="radio" name="q8" value="4"/></td><td><input type="radio" name="q8" value="5"/></td></tr>
+			<tr><td>Do you think Pizza Hi is more competitive than other restaurant?</td>
+				<td><input type="radio" name="q9" value="1"/></td><td><input type="radio" name="q9" value="2"/></td><td><input type="radio" name="q9" value="3"/></td><td><input type="radio" name="q9" value="4"/></td><td><input type="radio" name="q9" value="5"/></td></tr>
+			<tr><td>Do you feel comfortable in Pizza Hi restaurant?</td>
+				<td><input type="radio" name="q10" value="1"/></td><td><input type="radio" name="q10" value="2"/></td><td><input type="radio" name="q10" value="3"/></td><td><input type="radio" name="q10" value="4"/></td><td><input type="radio" name="q10" value="5"/></td></tr>
+			<tr><td colspan="6">Other comments : <input type="text" placeholder="(optional)"/></td></tr>
+
+			<tr><th colspan="6">Pizza Hi Delivery</th></tr>
+			<tr><td>Does Pizza Hi Delivery arrive on time?</td>
+				<td><input type="radio" name="q11" value="1"/></td><td><input type="radio" name="q11" value="2"/></td><td><input type="radio" name="q11" value="3"/></td><td><input type="radio" name="q11" value="4"/></td><td><input type="radio" name="q11" value="5"/></td></tr>
+			<tr><td>Is your pizza still hot upon arrival?</td>
+				<td><input type="radio" name="q12" value="1"/></td><td><input type="radio" name="q12" value="2"/></td><td><input type="radio" name="q12" value="3"/></td><td><input type="radio" name="q12" value="4"/></td><td><input type="radio" name="q12" value="5"/></td></tr>
+			<tr><td>Does the delivery people locate your house accurately?</td>
+				<td><input type="radio" name="q13" value="1"/></td><td><input type="radio" name="q13" value="2"/></td><td><input type="radio" name="q13" value="3"/></td><td><input type="radio" name="q13" value="4"/></td><td><input type="radio" name="q13" value="5"/></td></tr>
+			<tr><td>How likely you order pizza through delivery?</td>
+				<td><input type="radio" name="q14" value="1"/></td><td><input type="radio" name="q14" value="2"/></td><td><input type="radio" name="q14" value="3"/></td><td><input type="radio" name="q14" value="4"/></td><td><input type="radio" name="q14" value="5"/></td></tr>
+			<tr><td>Do you prefer delivery than dine-in?</td>
+				<td><input type="radio" name="q15" value="1"/></td><td><input type="radio" name="q15" value="2"/></td><td><input type="radio" name="q15" value="3"/></td><td><input type="radio" name="q15" value="4"/></td><td><input type="radio" name="q15" value="5"/></td></tr>
+			<tr><td colspan="6">Other comments : <input type="text" placeholder="(optional)"/></td></tr>
+
+			<tr><th colspan="6">Customer preference</th></tr>
+			<tr><td>Do you like to customize pizza?</td>
+				<td><input type="radio" name="q16" value="1"/></td><td><input type="radio" name="q16" value="2"/></td><td><input type="radio" name="q16" value="3"/></td><td><input type="radio" name="q16" value="4"/></td><td><input type="radio" name="q16" value="5"/></td></tr>
+			<tr><td>How likely you will pay extra for a special pizza?</td>
+				<td><input type="radio" name="q17" value="1"/></td><td><input type="radio" name="q17" value="2"/></td><td><input type="radio" name="q17" value="3"/></td><td><input type="radio" name="q17" value="4"/></td><td><input type="radio" name="q17" value="5"/></td></tr>
+			<tr><td>Will you check for promotion before ordering?</td>
+				<td><input type="radio" name="q18" value="1"/></td><td><input type="radio" name="q18" value="2"/></td><td><input type="radio" name="q18" value="3"/></td><td><input type="radio" name="q18" value="4"/></td><td><input type="radio" name="q18" value="5"/></td></tr>
+			<tr><td>Do you like order sides with your pizza?</td>
+				<td><input type="radio" name="q19" value="1"/></td><td><input type="radio" name="q19" value="2"/></td><td><input type="radio" name="q19" value="3"/></td><td><input type="radio" name="q19" value="4"/></td><td><input type="radio" name="q19" value="5"/></td></tr>
+			<tr><td>How satisfied are you with your recent purchase in Pizza Hi?</td>
+				<td><input type="radio" name="q20" value="1"/></td><td><input type="radio" name="q20" value="2"/></td><td><input type="radio" name="q20" value="3"/></td><td><input type="radio" name="q20" value="4"/></td><td><input type="radio" name="q20" value="5"/></td></tr>
+			<tr><td colspan="6">Other comments : <input type="text" placeholder="(optional)"/></td></tr>
+		</tbody>
+	</table>
+	</form>
+	<button onclick="count();">Submit</button>
+	
+	<div id="successMsg"></div>
+</article>
+	
+<!--Footer-->
+<footer> 
+	<div>
+		<img src="general/logo.png"/>
+		<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+	</div>
+	<div>
+		<p>
+		Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+		Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+		Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+		Any suggentions to us? <br/>
+		<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+		</p>
+	</div>
+</footer>
+
+</body>
+
+</html>

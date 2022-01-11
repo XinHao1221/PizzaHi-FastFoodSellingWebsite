@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>My Cart</title>
+
+<link href="My Cart_Design.css" type="text/css" rel="stylesheet"/>
+<link href="template.css" rel="stylesheet" type="text/css"/>
+<link href="Log In_Design.css" type="text/css" rel="stylesheet"/>
+
+<script>
+var subTotal = 0;
+var codition = 0;
+var qty;
+
+ function calculateTotal()
+ {
+ 	codition = 1;
+ 	qty = document.getElementById('quantity').value;
+ 	subTotal = 32.90 * qty;
+ 	var totalBeforeTax;
+ 	var totalAfterTax;
+ 	var voucherCode = document.getElementById('voucherCode').value;
+ 	var subTotal;
+	var discount = 0;
+ 	
+ 	if(voucherCode == "1234")
+ 	{
+ 		totalBeforeTax = subTotal - voucherCodeValidation(voucherCode, subTotal, discount);
+ 	}
+ 	else{
+ 		var totalDiscount = discount.toFixed(2);
+ 		document.getElementById('discount').innerHTML = totalDiscount;
+ 		totalBeforeTax = subTotal - discount;
+ 	}
+ 	
+ 	tax = totalBeforeTax * 0.06;
+ 	totalAfterTax = totalBeforeTax + tax;
+ 	
+ 	var total = totalAfterTax.toFixed(2);
+ 	var totalTax = tax.toFixed(2);
+ 	var TotalSubTotal = subTotal.toFixed(2);
+ 	 	
+ 	document.getElementById('subTotal').innerHTML = TotalSubTotal;
+	document.getElementById('tax').innerHTML = totalTax;
+	document.getElementById('totalAfterTax').innerHTML = total;	
+ }
+ 
+ 
+function voucherCodeValidation(voucherCode, subTotal, discount){
+						
+	discount = subTotal * 0.05;
+ 	var totalDiscount = discount.toFixed(2);
+	document.getElementById('discount').innerHTML = totalDiscount;
+	
+	return totalDiscount;
+}
+
+function PaymentValidation()
+{
+	if(codition == 1)
+	{
+		if(qty == 0){
+			alert('Please select quantity!!!');
+			codition = 0;
+		}
+		else{
+			window.location.href = 'order_info.html';
+		}
+	}
+	else{
+		alert('Please click show total button!!!');
+	}
+}
+
+	var action = 1;
+	
+	/* To open and close the sign button */
+	function loginButton() {
+	    if ( action == 1 ) {
+	        openForm();
+	        action = 2;
+	    } else {
+	        closeForm();
+	        action = 1;
+	    }
+	}
+	
+	function openForm() {
+	  document.getElementById("myForm").style.display = "block";
+	}
+	
+	function closeForm() {
+	  document.getElementById("myForm").style.display = "none";
+	}
+
+	function change() 
+	{
+	    var elem = document.getElementById("logInButton");
+	    if (elem.value=="Login") elem.value = "Open Curtain";
+	    else elem.value = "Close Curtain";
+	}
+	
+	/* Show the hidden password */
+	function myFunction() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+	
+	/* Email and password validation */
+	function validation(){
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('password').value;
+		var emailValidation;
+		var pswValidation;
+		
+		if(email == "kelvin@gmail.com"){
+			emailValidation = 1;}
+		else{
+			alert('Invalid email!!!')}
+		
+		if(password == "1234"){
+			pswValidation = 1;}
+		else{
+			alert('Invalid Password!!!')}
+			
+		if(pswValidation == 1 && emailValidation == 1)
+		{
+			window.location.href = 'Homepage_MembershipProfile.html';
+		}
+		
+	}
+
+</script>
+
+</head>
+
+<body>
+
+<!--Logo-->
+<a href="Homepage_Login.html">
+	<div class="logo">
+		<img src="general/logo.png"/>
+	</div>
+</a>
+
+<!--Top part-->
+<div class="top">
+<!--Header-->
+<header>
+	<marquee>24 Hours Delivery 1800-888-999</marquee>
+	<a  onclick="loginButton();" id="logInButton"><img src="general/Log In.png" class="icon"/> Log In</a>
+</header>
+
+<!-- Login form -->
+	<div class="form-popup" id="myForm">
+	  <form class="form-container">
+	    <center><h1>Login</h1></center>
+	
+	    <label for="email"><b><img src="general/Email.png"/>&nbsp;Email</b></label>
+	    <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+	
+	    <label for="psw"><b><img src="general/Password.png"/>&nbsp;Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="psw" id="password" required/>
+		<input type="checkbox" onclick="myFunction()"/><font style="float:left">Show Password</font>
+	  </form>
+	  <div class="form-container">
+	  	<button type="submit" class="signin" onclick="validation()"><b>Login</b></button>
+	    <br/>
+	    <center><h3>Not a Pizza Hi's User?</h3></center>
+	    <button type="button" class="signup" onclick="window.location.href='registration.html'"><b>Sign Up Now</b></button>
+	    </div>
+	</div>
+
+
+
+<!--Navigation Bar-->
+<nav style="margin-bottom:20px;">
+	<ul>
+		<li><a href="Homepage_Login.html" style="text-decoration:none; color:white;"><img src="general/Homepage.png" class="icon"/>&nbsp; Home</a></li>
+		<li><a href="menu.html" style="text-decoration:none; color:white;"><img src="general/Menu.png" class="icon"/>&nbsp; Menu</a></li>
+		<li><a href="track_order.html" style="text-decoration:none; color:white;"><img src="general/Track Order.png" class="icon"/>&nbsp; Track Order</a></li>
+		<li><a href="Contact Us.html" style="text-decoration:none; color:white;"><img src="general/About Us.png" class="icon"/>&nbsp; About Us</a></li>
+		<li><a href="Job Vacancy.html" style="text-decoration:none; color:white;"><img src="general/Job Vacancy.png" class="icon"/>&nbsp; Job Vacancy</a></li>
+		<li><a href="My Cart.html" style="text-decoration:none; color:white;"><img src="general/Add To Cart.png" class="icon"/>&nbsp; My Cart</a></li>
+	</ul>
+</nav>
+</div>
+
+<!--Main Content-->
+
+
+<!-- Display the product desciption -->
+<article>
+	<div class="Mycart">
+      <div class="title" style="text-align:left;">
+        <u>My Cart (1)</u>
+      </div>
+
+      <div class="item" style="text-align:left;">
+        
+        <div class="image">
+          <img src="Web Page Image (Koh Xin Hao)/Double Box.jpg" width="220px;" height="150px;" />
+        </div>
+
+        <div class="description">
+          <span style="color:red; font-size:30px; width: 170px;">Double Box</span><br/>
+          <span style="font-size:20px; width: 142px;">2 Regular Pizza</span><br/>
+          <span style="font-size:25px">RM 32.90</span><br/>
+        </div>
+        
+        <div class="quantity">
+        <br/><br/>
+          <input type="number" id="quantity" value="1" min="1" style="margin-left:100px;"/>
+        </div>
+		</div>
+	</div>
+	
+	<br/><br/><br/><br/><br/><br/>
+
+	<div class="title"></div>
+	<br/><br/>
+	<input type="text" placeholder="Enter Voucher Code" class="voucher" name="vouchercode" id="voucherCode"/>
+	<button class="voucher-button" onclick="calculateTotal()" required><b>Show Total</b></button>
+	
+	<br/><br/><br/><br/><br/><br/><br/><br/>
+	<!-- Display the total payment to user -->
+	<div style="width:100%; height:150px;">
+		<div class="totalPayment">
+		<table style="float:right; border:0px; margin-right:5px;">
+			<tbody>
+				<tr>
+					
+					<td> Total</td>
+					<td>:</td>
+					<td style="width: 25px">&nbsp;&nbsp;RM</td>
+					<td style="width:70px;"><p id="subTotal">0.00</p></td>
+				</tr>
+				<tr>
+					<td> Discount</td>
+					<td>:</td>
+					<td style="width: 25px">-&nbsp;RM</td>
+					<td style="width:70px;"><p id="discount">0.00</p></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;SST Charges (6%)</td>
+					<td>:</td>
+					<td style="width: 25px">RM</td>
+					<td style="width:70px;"><p id="tax">0.00</p></td>
+				</tr>
+				<tr>
+					<td style="font-size:21px;"><b>Total Payment</b></td>
+					<td style="font-size:21px;"><b>:</b></td>
+					<td style="width: 30px; font-size:21px;"><b>RM</b></td>
+					<td style="width:75px; font-size:21px;"><b><p id="totalAfterTax">0.00</p></b></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+			<button type="button" class="payment-button" onclick="PaymentValidation()">
+				Check Out<img src="Web Page Image (Koh Xin Hao)/play-arrow.png" width="30px" height="20px" style="margin-left:4px;"/>
+			</button>
+
+	</div>
+	</article>
+<!--Footer-->
+<footer> 
+	<div>
+		<img src="general/logo.png"/>
+		<p>Pizza Hi Malaysia <br/>1-300-888-999 <br/>&copy;Pizza Hi Food Services Sdn Bhd (391089-A)</p>
+	</div>
+	<div>
+		<p>
+		Facebook : <a href=""> <img src="general/facebook.png" class="icon"/>Pizza Hi Malaysia </a> <br/>
+		Email : <a href=""> <img src="general/Email.png" class="icon"/> pizzaHi@kmail.com </a> <br/> 
+		Fax : <a href=""> <img src="general/fax.png" class="icon"/> 03-938 9379</a> <br/>
+		Any suggentions to us? <br/>
+		<a href="FAQ.html#feedback" style="text-decoration:none; color:white;">Feedback &nbsp;</a><a href="FAQ.html#tc" style="text-decoration:none; color:white;">T&C &nbsp;</a><a href="FAQ.html#faq" style="text-decoration:none; color:white;">FAQ &nbsp;</a> <br/>
+		</p>
+	</div>
+</footer>
+
+</body>
+
+</html>
